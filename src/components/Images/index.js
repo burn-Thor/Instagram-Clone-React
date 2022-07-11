@@ -15,20 +15,20 @@ const Images = () => {
     }, [user])
 
   return (
+  
+{...photos.map((item, index) => {
+      return(
     
  <ImageContainer>
-    <Image
-    {...photos.map((item, index) => {
-      return(
-    <>
-      <h2>{item.author}</h2>
-      <img src = {item.download_url} alt = "random from Lorem Picsum"></img>
-    </>  
-        )
-      })} >
-    </Image>
-  </ImageContainer>
-    
+ 
+ <h2>{item.author}</h2>   
+
+ <Image src = {item.download_url} alt = "random from Lorem Picsum"/>
+ 
+ </ImageContainer>
+      )
+
+})}
  
   )
 }
