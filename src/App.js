@@ -1,43 +1,27 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Images from "./components/Images";
+import Feed from './Pages/Feed';
+import Home from './Pages/Home';
+import Login from './Pages/Login';
+import Profile from './Pages/Profile';
 
 const App = () => {
+  const[user, setUser] = useState();
   return(
-  <Images />
 
-  )
-  //   const [user, setUser] = useState("")
-  //   const [photos, setPhotos] = useState([]);
-  //   const fetchImages = async()=>{
-  //     const response = await fetch("https://picsum.photos/v2/list");
-  //     const data = await response.json();
-  //     setPhotos(data);
-  //   }
-  
-  //   useEffect(() => {
-  //     fetchImages()
-  //   }, [user])
-      
-
-  // return (
-  //   <div className = "App">
-  //     <h1>Instagram Clone</h1>
-   
-   
-  //   {photos.map((item, index) => {
-  //     return(
-  //     <div>
-  //     <h2>{item.author}</h2>
-  //     <img src = {item.download_url} alt = "random from Lorem Picsum"></img>
-  //     </div>
-  //       );
-  //     })}
-  
-
-  //   </div>
-    
-  // );
+    <BrowserRouter className="App">
+      <Routes>
+        <Route path="/" element={<Login setter={setUser} user={user} />} />
+        <Route path="/Home" element={<Home user={user} />} />
+        <Route path="/Feed" element={<Feed user={user} />} />
+        <Route
+          path="/Profile"
+          element={<Profile setter={setUser} user={user} />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );    
 };
 
 export default App;
