@@ -2,8 +2,8 @@ import {useState} from "react";
 import {Navigate} from "react-router-dom";
 import {signUp} from "../utils";
 
-const Login = ({setter, user}) => {
-    const [username, setUsername] = useState;
+const Login = ({ setter, user }) => {
+    const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [logBool, setLogBool] = useState(false);
