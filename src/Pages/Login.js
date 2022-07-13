@@ -18,16 +18,16 @@ return(
     <div>
     {user && <Navigate to="/home" />}
     <form onSubmit={submitHandler}>
-        <input onChange={() => setUsername} placeholder="Username" />
-        {!logBool && <input onChange = {() => setEmail} placeholder="Email"/>}
-        <input onChange={() => setPassword} placeholder="Password" type="password"/>
+        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" />
+        {!logBool && <input onChange = {(event) => setEmail(event.target.value)} placeholder="Email"/>}
+        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" type="password"/>
         <button type = "submit">{logBool ? "Log In" : "Sign Up"}</button>
     </form>
     <button onClick={() => setLogBool(!logBool)}>
         {logBool ? "Don't" : "Already"} have an account?
     </button>
     </div>
-)
-}
+  );
+}; 
 
 export default Login;
